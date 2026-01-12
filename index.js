@@ -1,6 +1,18 @@
 import { Client, GatewayIntentBits } from "discord.js";
 import axios from "axios";
+import http from "http";
 
+const PORT = process.env.PORT || 3000;
+
+/* ---- HTTP server (required for Render) ---- */
+http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("OK");
+}).listen(PORT, () => {
+  console.log(`Health check server running on port ${PORT}`);
+});
+
+/* ---- Discord relay bot ---- */
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
