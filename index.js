@@ -27,7 +27,7 @@ client.once("ready", () => {
   console.log(`BOT LOGGED IN AS: ${client.user.tag}`);
 });
 
-client.on("messageCreate", async (msg) => {
+/* client.on("messageCreate", async (msg) => {
   if (msg.author.bot) return;
 
   try {
@@ -43,6 +43,13 @@ client.on("messageCreate", async (msg) => {
   } catch (err) {
     console.error("Failed to relay message:", err.message);
   }
+}); */ 
+
+client.on("messageCreate", (msg) => {
+  console.log("EVENT FIRED");
+  console.log("CONTENT:", msg.content);
+  console.log("CHANNEL:", msg.channel?.name);
 });
+
 
 client.login(process.env.DISCORD_BOT_TOKEN);
