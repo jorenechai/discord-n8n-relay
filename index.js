@@ -12,6 +12,8 @@ http.createServer((req, res) => {
   console.log(`Health check server running on port ${PORT}`);
 });
 
+console.log("BOT PROCESS STARTED");
+
 /* ---- Discord relay bot ---- */
 const client = new Client({
   intents: [
@@ -19,6 +21,10 @@ const client = new Client({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent
   ]
+});
+
+client.once("ready", () => {
+  console.log(`BOT LOGGED IN AS: ${client.user.tag}`);
 });
 
 client.on("messageCreate", async (msg) => {
