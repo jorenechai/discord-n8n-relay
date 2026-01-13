@@ -1,6 +1,8 @@
 import { Client, GatewayIntentBits } from "discord.js";
 import axios from "axios";
 import http from "http";
+// Correct place
+const N8N_WEBHOOK_URL = "https://expense-bot-1.jorenechai.com/webhook/discord-expense";
 
 /* ---- Render health check server ---- */
 const PORT = process.env.PORT || 3000;
